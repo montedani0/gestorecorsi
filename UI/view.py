@@ -42,16 +42,20 @@ class View(ft.UserControl):
 
         row1 = ft.Row([self.ddPD, self.btnPrintCorsiPD, self.btnPrintIscrittiCorsiPD], alignment=ft.MainAxisAlignment.CENTER)
 
-        self.ddCodins = ft.Dropdown(label = "Corso", width=200)
-        self._controller.fillddCodins()
-        self.btnPrintIscrittiCodins = ft.ElevatedButton(text = "Stampa iscritti al corso",
-                                                        on_click = self._controller.handlePrintIscrittiCodins,
-                                                 width=300)
-        self.btnPrintCDSCodins = ft.ElevatedButton(text = "Stampa CDS afferenti",
-                                                   on_click = self._controller.handlePrintCDSCodins,
-                                                 width=300)
+        self.ddCodins = ft.Dropdown(label="Corso",
+                                    width=200)
 
-        row2 = ft.Row([self.ddCodins, self.btnPrintIscrittiCodins, self.btnPrintCDSCodins], alignment=ft.MainAxisAlignment.CENTER)
+        self._controller.fillddCodins()
+
+        self.btnPrintIscrittiCodins = ft.ElevatedButton(text="Stampa Iscritti al corso",
+                                                        on_click= self._controller.handlePrintIscrittiCodins,
+                                                        width=300) #handle metodi che gestiscono l'interfaccia grafica
+        self.btnPrintCDSCodins = ft.ElevatedButton(text="Stampa CDS afferenti",
+                                                   on_click=self._controller.handlePrintCDSCodins,
+                                                   width=300)
+
+        row2 = ft.Row([self.ddCodins, self.btnPrintIscrittiCodins,self.btnPrintCDSCodins], alignment=ft.MainAxisAlignment.CENTER)
+
         self._page.add(row1, row2)
 
         # List View where the reply is printed
